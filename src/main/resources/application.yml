@@ -1,0 +1,43 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5435/postgres
+    driver-class-name: org.postgresql.Driver
+    username: danilanovikov
+    password: demo2228
+  data:
+    redis:
+      port: 6379
+      host: localhost
+  liquibase:
+    enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+app:
+  redis:
+    enable: true
+
+  cache:
+    cacheType: redis
+    cache-names:
+      - orderFilter
+      - orderById
+      - orders
+      - newOrder
+    caches:
+      orderFilter:
+        expiry:
+          20m
+      orderById:
+        expiry:
+          20m
+      orders:
+        expiry:
+          20m
+      newOrder:
+        expiry:
+          20m
+
